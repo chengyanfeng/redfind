@@ -269,7 +269,7 @@ func (m *MongoModel) AllData() (r *[]models.Node) {
 }
 func (m *MongoModel) query(c *mgo.Collection) *mgo.Query {
 	q:=&mgo.Query{}
-	if IsEmpty(m.Query)==false{
+	if len(*m.Query)==0{
 		q = c.Find(nil).Skip(m.Start)
 	}else {
 		q = c.Find(m.Query).Skip(m.Start)

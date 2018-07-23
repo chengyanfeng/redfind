@@ -20,7 +20,7 @@ func (c *MainController) Get() {
 	if curlpage<1{
 		curlpage=1
 	}
-	if !util.IsEmpty(explorerSearch){
+	if len(explorerSearch)>0{
 		queryp["data"]=explorerSearch
 	}
 	datalist:=util.D("test").Find(queryp).Page((curlpage-1)*page_size,page_size-1).AllData()
