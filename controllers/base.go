@@ -13,7 +13,7 @@ func (this *BaseController) Prepare() {
 }
 
 func PagerHtml(totalcount int, page_size int, curpage int, mpurl string, number int) string {
-	if number%2==0{
+	if number%2 == 0 {
 		return "请输入为奇数的页码数"
 	}
 	totalpage := (totalcount / page_size) + 1
@@ -52,11 +52,11 @@ func PagerHtml(totalcount int, page_size int, curpage int, mpurl string, number 
 						length = 1 - start
 						start = 1
 
-						if (end+length) > totalpage {
+						if (end + length) > totalpage {
 							length = length - ((end + length) - totalpage)
 						}
 					}
-					if (end+length) > totalpage {
+					if (end + length) > totalpage {
 						length = length - ((end + length) - totalpage)
 					}
 					for i := start; i <= end+length; i++ {
