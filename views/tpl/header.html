@@ -1,175 +1,53 @@
-<!-- BEGIN HEADER TOP -->
-<div class="page-header-top">
-    <div class="container">
-    <!-- BEGIN LOGO -->
-    <div class="page-logo">
-        <a href="/">
-            <img ng-show="settings.logo" src="" alt="logo" class="logo-default" />
-        </a>
-    </div>
-    <!-- END LOGO -->
-            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler btn btn-sm green-haze btn-outline">菜单</a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN TOP NAVIGATION MENU -->
-        <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-                <li class="dropdown">
-                    <form name="form.searchForm" class="search-form">
-                        <div class="input-group">
-                            <input type="text" name="explorerSearch" class="form-control" placeholder="搜索  Address / Txhash / BlockNum / BlockHash" ng-model="form.searchInput" ng-keyup="$event.keyCode == 13 ? searchQuery(form.searchInput) : null">
-                            <span class="input-group-btn">
-                                <a class="btn searchIcon" ng-click="searchQuery(form.searchInput)">
-                                    <i class="icon-magnifier"></i>
-                                </a>
-                            </span>
-                        </div>
-                    </form>
-                </li>
+<head>
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
 
+        ng\:form {
+            display: block;
+        }
 
-            </ul>
-        </div>
-        <!-- END TOP NAVIGATION MENU -->
-    </div>
-</div>
-<!-- END HEADER TOP -->
-<!-- BEGIN HEADER MENU -->
-<div class="page-header-menu">
-    <div class="container">
+        .ng-animate-shim {
+            visibility: hidden;
+        }
 
-        <!-- BEGIN MEGA MENU -->
-        <div class="hor-menu hor-menu-light">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/">主页</a>
-                </li>
-                <li class="menu-dropdown mega-menu-dropdown ">
-                    <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="/token" class="dropdown-toggle"> 企业币
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" style="min-width: 410px">
-                        <li>
-                            <div class="mega-menu-content">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <ul class="mega-menu-submenu">
-                                            <!--<li>
-                                                <a href="/token/0x085fb4f24031eaedbc2b611aa528f22343eb52db" class="iconify">
-                                                    <i class="icon-pin"></i> BitEther</a>
-                                            </li>
-                                            <li>
-                                                <a href="/dao" class="iconify">
-                                                    <i class="icon-trash"></i> TheDAO</a>
-                                            </li>-->
-                                            <li>
-                                                <a href="/token" class="iconify">
-                                                    <i class="icon-puzzle"></i> 所有已发行企业币 </a>
-                                            </li>
+        .ng-anchor {
+            position: absolute;
+        }</style>
+    <title data-ng-bind="'红链 | ' + $state.current.data.pageTitle" class="ng-binding">红链 | Blockchain Explorer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="红链区块浏览器" name="description">
+    <meta content="WJD" name="author">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <!--
-                <li class="menu-dropdown mega-menu-dropdown ">
-                    <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle"> Stats
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="mega-menu-content">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <ul class="mega-menu-submenu">
-                                            <li>
-                                                <a href="/stats/hashrate">
-                                                    <i class="fa fa-line-chart"></i> HashRate Growth Chart </a>
-                                            </li>
-                                            <li>
-                                                <a href="/stats/miner_hashrate">
-                                                    <i class="fa fa-line-chart"></i> Miner Distribution Chart</a>
-                                            </li>
-                                            <li>
-                                                <a href="/stats/The_bomb_chart">
-                                                    <i class="fa fa-line-chart"></i> The bomb chart</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-dropdown classic-menu-dropdown ">
-                    <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;"> Misc
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu pull-left">
-                        <li>
-                            <a href="/">
-                                <i class="icon-check"></i> Verify Contract (N/A)</a>
-                        </li>
-                        <li>
-                            <a href="/">
-                                <i class="icon-refresh"></i>
-                                <span class="title">Broadcast TXN (N/A)</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-dropdown classic-menu-dropdown ">
-                    <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;"> Community
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu pull-left">
-                        <li>
-                          <a href="https://forum.ethereumclassic.org" target="_blank">
-                              <i class="fa fa-group"></i>
-                              <span class="title" data-toggle="tooltip" title="Community Chat"> The Forum</span>
-                          </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="https://tokenmint.io" target="_blank">
-                                <i class="fa fa-leaf"></i>
-                                <span class="title" data-toggle="tooltip" title="ERC223 Token Factory" > TokenMint.io</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href=" https://ethereumproject.github.io/etherwallet/ " target="_blank">
-                                <i class="fa fa-folder-open"></i>
-                                <span class="title" data-toggle="tooltip" title="Client Side JS ETC Wallet"> ClassicEtherWallet.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://etcstats.net" target="_blank">
-                                <i class="fa fa-bar-chart"></i>
-                                <span class="title" data-toggle="tooltip" title="Mainnet Stats"> Live Network Stats </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://statebot.info" target="_blank">
-                                <i class="fa fa-android"></i>
-                                <span class="title" data-toggle="tooltip" title="JSON state dumps for analysis"> Statebot.io </span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="http://teststats.epool.io/" target="_blank">
-                                <i class="fa fa-bar-chart"></i>
-                                <span class="title" data-toggle="tooltip" title="Live Testnet Stats">Morden network stats </span>
-                            </a>
-                        </li>
+    <base href="/">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
+          type="text/css">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+    <link href="/static/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN DYNAMICALLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
+    <link type="text/css" rel="stylesheet" href="static/css/todo-2.min.css">
+    <script src="/static/js/controllers/HomeController.js" async=""></script>
+    <script src="/static/js/jquery.min.js"></script>
 
-                    </ul>
-                </li>-->
-            </ul>
-        </div>
-        <!-- END MEGA MENU -->
-    </div>
-</div>
-<!-- END HEADER INNER -->
+    <link id="ng_load_plugins_before">
+    <!-- END DYNAMICALLY LOADED CSS FILES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="static/css/components.min.css" id="style_components" rel="stylesheet" type="text/css">
+    <link href="static/css/plugins.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="static/css/custom.css" rel="stylesheet" type="text/css">
+    <link ng-show="green-haze.min.css" href="static/css/green-haze.min.css" rel="stylesheet" type="text/css"
+          class="ng-hide">
+    <!-- END THEME STYLES -->
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+</head>

@@ -10,6 +10,9 @@ type BaseController struct {
 }
 
 func (this *BaseController) Prepare() {
+	this.LayoutSections = make(map[string]string)
+	this.LayoutSections["HtmlHead"] = "tpl/header.html"
+	this.Layout="home.html"
 }
 
 func PagerHtml(totalcount int, page_size int, curpage int, mpurl string, number int) string {

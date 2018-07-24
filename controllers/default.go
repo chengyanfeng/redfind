@@ -30,6 +30,6 @@ func (c *MainController) Get() {
 	totalcount := util.D("test").Find(queryp).Count()
 	c.Data["page"] = PagerHtml(totalcount, page_size, curlpage, explorerSearch, number)
 	c.Data["datalist"] = datalist
-	c.TplName = "home.html"
+	c.TplName = "form.html"
 
 }
