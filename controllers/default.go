@@ -22,6 +22,8 @@ func (c *MainController) Get() {
 	}
 	if len(explorerSearch)>0{
 		queryp["data"]=explorerSearch
+	}else {
+		delete(queryp,"data")
 	}
 	datalist:=util.D("test").Find(queryp).Page((curlpage-1)*page_size,page_size-1).AllData()
 	totalcount:=util.D("test").Find(queryp).Count()

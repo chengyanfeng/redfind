@@ -265,6 +265,7 @@ func (m *MongoModel) AllData() (r *[]models.Node) {
 		q := m.query(c)
 		q.All(r)
 	})
+
 	return
 }
 func (m *MongoModel) query(c *mgo.Collection) *mgo.Query {
