@@ -124,9 +124,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                      {{ .LayoutContent}}
-                                        <div style="text-align:right">
+                                    {{ .LayoutContent}}
+                                        <div style="text-align:right" id="pagehtml">
                                         {{.page|str2html}}
+
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +155,6 @@
     }
 
 
-
-
 </script>
+
 </html>

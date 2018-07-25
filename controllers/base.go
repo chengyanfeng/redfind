@@ -25,7 +25,6 @@ func PagerHtml(totalcount int, page_size int, curpage int, mpurl string, number 
 	} else {
 		totalpage = (totalcount / page_size)
 	}
-
 	//如果返回为空，那就返回为空
 	if totalcount == 0 {
 		return ""
@@ -63,10 +62,15 @@ func PagerHtml(totalcount int, page_size int, curpage int, mpurl string, number 
 
 						if (end + length) > totalpage {
 							length = length - ((end + length) - totalpage)
-						}
+
+							}
 					}
 					if (end + length) > totalpage {
 						length = length - ((end + length) - totalpage)
+						if(length<0){
+							start=start+length
+						}
+
 					}
 					for i := start; i <= end+length; i++ {
 						if i == curpage {
